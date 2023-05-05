@@ -1,6 +1,6 @@
-import { Statistics } from 'components/Statistics/Statistics';
-import { FeedbackOptions } from 'components/FeedbackOptions/FeedbackOptions';
-import { Section } from 'components/Section/Section';
+import { Statistics } from 'components/Statistics';
+import { FeedbackOptions } from 'components/FeedbackOptions';
+import { Section } from 'components/Section';
 
 import React, { Component } from 'react';
 
@@ -11,27 +11,10 @@ export class Feedback extends Component {
     bad: 0,
   };
 
-  handleLeaveFeedback = event => {
-    // eslint-disable-next-line default-case
-    switch (event) {
-      case 'good':
-        this.setState(prevState => ({
-          good: prevState.good + 1,
-        }));
-        break;
-
-      case 'neutral':
-        this.setState(prevState => ({
-          neutral: prevState.neutral + 1,
-        }));
-        break;
-
-      case 'bad':
-        this.setState(prevState => ({
-          bad: prevState.bad + 1,
-        }));
-        break;
-    }
+  handleLeaveFeedback = label => {
+    this.setState(prevState => ({
+      [label]: prevState[label] + 1,
+    }));
   };
 
   countTotalFeedback = ({ good, neutral, bad }) => good + neutral + bad;
