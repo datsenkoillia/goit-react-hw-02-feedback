@@ -27,7 +27,7 @@ export const Statistics = ({
           </StatisticItem>
           <StatisticItem>
             Positive feedback:
-            <span>{positivePercentage}%</span>
+            <span> {positivePercentage}%</span>
           </StatisticItem>
         </ul>
       ) : (
